@@ -201,6 +201,155 @@ function formatarTexto($texto){
            "<br><br>Quantidade de caracteres: ".$quantidade;
 
 }
+
+function analisarProdutos($texto,$pesquisa){
+
+    $lista = explode(",",$texto);
+
+    $produtos = [];
+
+    foreach($lista as $item){
+
+        $dados = explode(":",$item);
+
+        $produtos[trim($dados[0])] = floatval($dados[1]);
+
+    }
+
+    $maisCaro = array_keys($produtos,max($produtos))[0];
+    $maisBarato = array_keys($produtos,min($produtos))[0];
+
+    $media = array_sum($produtos)/count($produtos);
+
+    if(isset($produtos[$pesquisa])){
+
+        $resultado = "Encontrado - R$ ".$produtos[$pesquisa];
+
+    }else{
+
+        $resultado = "Produto não encontrado.";
+
+    }
+
+    return "Mais caro: ".$maisCaro.
+    "<br>Mais barato: ".$maisBarato.
+    "<br>Média: ".number_format($media,2,",",".").
+    "<br>Pesquisa: ".$resultado;
+
+}
+
+function criptografarMensagem($texto){
+
+    return str_rot13($texto);
+
+}
+
+function descriptografarMensagem($texto){
+
+    return str_rot13($texto);
+
+}
+
+function estatisticasNumericas($texto){
+
+    $vetor = explode(",",$texto);
+
+    sort($vetor);
+
+    $soma = array_sum($vetor);
+
+    $media = $soma/count($vetor);
+
+    $maior = max($vetor);
+
+    $menor = min($vetor);
+
+    $mediana = $vetor[floor(count($vetor)/2)];
+
+    $pares = 0;
+    $impares = 0;
+
+    foreach($vetor as $numero){
+
+        if($numero % 2 == 0){
+
+            $pares++;
+
+        }else{
+
+            $impares++;
+
+        }
+
+    }
+
+    return "Soma: ".$soma.
+    "<br>Média: ".number_format($media,2,",",".").
+    "<br>Maior: ".$maior.
+    "<br>Menor: ".$menor.
+    "<br>Mediana: ".$mediana.
+    "<br>Pares: ".$pares.
+    "<br>Ímpares: ".$impares;
+
+}
+
+function calcularIMC($peso,$altura){
+
+    return $peso / ($altura * $altura);
+
+}
+
+function validarEmail($email){
+
+    if(filter_var($email,FILTER_VALIDATE_EMAIL)){
+
+        return "E-mail válido";
+
+    }
+
+    return "E-mail inválido";
+
+}
+
+function contarVogais($texto){
+
+    $contador = 0;
+
+    $vogais = "aeiouAEIOU";
+
+    for($i = 0; $i < strlen($texto); $i++){
+
+        if(strpos($vogais,$texto[$i]) !== false){
+
+            $contador++;
+
+        }
+
+    }
+
+    return $contador;
+
+}
+
+function gerarSaudacao(){
+
+    $hora = date("H");
+
+    if($hora < 12){
+
+        return "Bom dia";
+
+    }
+
+    if($hora < 18){
+
+        return "Boa tarde";
+
+    }
+
+    return "Boa noite";
+
+}
 """
 
 

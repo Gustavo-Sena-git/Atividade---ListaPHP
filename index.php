@@ -322,5 +322,120 @@
     }
 
     ?>
+
+    <h2>Exercício 12 - Catálogo de Produtos</h2>
+
+    <form method="POST">
+
+        <label>Digite os produtos (Nome:Preço):</label><br>
+
+        <input type="text" name="produtos12" required>
+
+        <br><br>
+
+        <label>Produto para pesquisar:</label><br>
+
+        <input type="text" name="pesquisa12" required>
+
+        <br><br>
+
+        <input type="submit" name="calcularEx12" value="Analisar">
+
+    </form>
+
+    <?php
+
+    if(isset($_POST["calcularEx12"])){
+
+        $produtos12 = $_POST["produtos12"];
+        $pesquisa12 = $_POST["pesquisa12"];
+
+        echo analisarProdutos($produtos12,$pesquisa12);
+
+    }
+
+?>
+
+    <h2>Exercício 13 - Criptografia Simples</h2>
+
+    <form method="POST">
+
+        <textarea name="texto13" required></textarea>
+
+        <br><br>
+
+        <input type="submit" name="calcularEx13" value="Criptografar">
+
+    </form>
+
+    <?php
+
+    if(isset($_POST["calcularEx13"])){
+
+        $texto13 = $_POST["texto13"];
+
+        echo criptografarMensagem($texto13);
+
+        echo "<br><br>";
+
+        echo descriptografarMensagem(criptografarMensagem($texto13));
+
+    }
+
+    ?>
+
+    <h2>Exercício 14 - Estatísticas Numéricas</h2>
+
+    <form method="POST">
+
+        <label>Digite os números separados por vírgula:</label><br>
+
+        <input type="text" name="numeros14" required>
+
+        <br><br>
+
+        <input type="submit" name="calcularEx14" value="Calcular">
+
+    </form>
+
+    <?php
+
+    if(isset($_POST["calcularEx14"])){
+
+        echo estatisticasNumericas($_POST["numeros14"]);
+
+    }
+
+    ?>
+
+    <?php
+
+    require "funcoes.php";
+
+    echo "<h2>Biblioteca de Funções</h2>";
+
+    echo "IMC: ".calcularIMC(70,1.75);
+
+    echo "<br><br>";
+
+    echo validarEmail("gustavo@gmail.com");
+
+    echo "<br><br>";
+
+    echo "Senha: ".gerarSenha(8);
+
+    echo "<br><br>";
+
+    echo "Vogais: ".contarVogais("Programação");
+
+    echo "<br><br>";
+
+    echo inverterTexto("Gustavo");
+
+    echo "<br><br>";
+
+    echo gerarSaudacao();
+
+    ?>
 </body>
 </html>
