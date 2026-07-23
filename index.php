@@ -218,5 +218,109 @@
     }
 
     ?>
+
+    <h2>Exercício 8 - Organizador de Lista</h2>
+
+    <form method="POST">
+
+        <label>Digite os nomes separados por vírgula:</label><br>
+
+        <input type="text" name="nomes8" required>
+
+        <br><br>
+
+        <input type="submit" name="calcularEx8" value="Organizar">
+
+    </form>
+
+    <?php
+
+    if(isset($_POST["calcularEx8"])){
+
+        $nomes8 = $_POST["nomes8"];
+
+        echo ordenarNomes($nomes8);
+
+    }
+
+    ?>
+
+    <h2>Exercício 9 - Verificador Matemático</h2>
+
+    <form method="POST">
+
+        <label>Digite um número:</label><br>
+
+        <input type="number" name="numero9" required>
+
+        <br><br>
+
+        <input type="submit" name="calcularEx9" value="Analisar">
+
+    </form>
+
+    <?php
+
+    if(isset($_POST["calcularEx9"])){
+
+        $numero9 = $_POST["numero9"];
+
+        echo analisarNumero($numero9);
+
+    }
+
+    ?>
+
+    <h2>Exercício 10 - Sistema de Notas</h2>
+
+    <form method="POST">
+
+        <label>Digite as notas separadas por vírgula:</label><br>
+
+        <input type="text" name="notas10" required>
+
+        <br><br>
+
+        <input type="submit" name="calcularEx10" value="Calcular">
+
+    </form>
+
+    <?php
+
+    if(isset($_POST["calcularEx10"])){
+
+        $notas10 = $_POST["notas10"];
+
+        echo calcularMedia($notas10);
+
+    }
+
+    ?>
+
+    <h2>Exercício 11 - Formatador de Relatórios</h2>
+
+    <form method="POST">
+
+        <label>Digite um texto:</label><br>
+
+        <textarea name="texto11" rows="5" cols="40" required></textarea>
+
+        <br><br>
+
+        <input type="submit" name="calcularEx11" value="Formatar">
+
+    </form>
+
+    <?php
+
+    if(isset($_POST["calcularEx11"])){
+
+        $texto11 = $_POST["texto11"];
+
+        echo formatarTexto($texto11);
+
+    }
+
+    ?>
 </body>
 </html>
