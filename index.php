@@ -410,7 +410,7 @@
 
     <?php
 
-    require "funcoes.php";
+    
 
     echo "<h2>Biblioteca de Funções</h2>";
 
